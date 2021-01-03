@@ -1,0 +1,12 @@
+version: 0.1
+
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+      - gradle test
+reports:
+  nunit-reports:
+    files:
+      - app/build/test-results/testDebugUnitTest/*.xml
+    file-format: NUNITXML
