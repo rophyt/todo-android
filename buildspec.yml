@@ -4,7 +4,7 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - gradle test
+      - ./gradlew test
 reports:
   nunit-reports:
     files:
