@@ -6,7 +6,7 @@ phases:
       - echo Build started on `date`
       - ./gradlew test
 reports:
-  nunit-reports:
+  test-reports:
     files:
       - app/build/test-results/testDebugUnitTest/*.xml
-    file-format: NUNITXML
+    file-format: JUNITXML
