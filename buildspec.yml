@@ -4,9 +4,9 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - ./gradlew test
-reports:
-  test-reports:
-    files:
-      - app/build/test-results/testDebugUnitTest/*.xml
-    file-format: JUNITXML
+      - ./gradlew build
+artifacts:
+  files:
+    - app/build/outputs/apk/release/app-release-unsigned.apk
+  name: app-release-unsigned.apk
+  discard-paths: yes
