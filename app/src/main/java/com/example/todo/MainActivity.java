@@ -30,7 +30,28 @@ public class MainActivity extends AppCompatActivity {
                 change -> Log.i("Tutorial", change.item().toString()),
                 failure -> Log.e("Tutorial", "Observation failed.", failure),
                 () -> Log.i("Tutorial", "Observation complete.")
-        );        super.onCreate(savedInstanceState);
+        );
+        Amplify.DataStore.query(
+                Todo.class,
+                todos -> {
+                    while (todos.hasNext()) {
+                        Todo todo = todos.next();
+
+                        Log.i("Tutorial", "==== Todo ====");
+                        Log.i("Tutorial", "Name: " + todo.getName());
+
+                        if (todo.getPriority() != null) {
+                            Log.i("Tutorial", "Priority: " + todo.getPriority().toString());
+                        }
+
+                        if (todo.getDescription() != null) {
+                            Log.i("Tutorial", "Description: " + todo.getDescription());
+                        }
+                    }
+                },
+                failure -> Log.e("Tutorial", "Could not query DataStore", failure)
+        );
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
     }
